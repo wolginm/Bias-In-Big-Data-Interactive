@@ -619,11 +619,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theGoodies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  numToSpawn: 5
+  - {fileID: 1515262244}
+  - {fileID: 204515148}
+  - {fileID: 1314077975}
+  - {fileID: 945606579}
+  numToSpawn: 10
   xMin: -8.5
   xMax: 8.5
   yMin: -4.5
