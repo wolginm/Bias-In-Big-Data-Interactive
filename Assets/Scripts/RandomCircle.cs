@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomCircle : MonoBehaviour
 {
-    public GameObject[] theGoodies;
+    public GameObject refC;
     public int numToSpawn;
 
     // the range of X
@@ -18,20 +18,30 @@ public class RandomCircle : MonoBehaviour
     public float yMax;
 
     // Update is called once per frame
-    void Update()
+
+
+    private void Start()
     {
-        if (numToSpawn <= 0) return;
-        int randy = Random.Range(0, theGoodies.Length);
-        Vector2 pos = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
-        Transform trans = theGoodies[randy].transform;
-        trans.transform.position = pos;
+        int r, g, b;
+        float x, y;
+        Vector2 currentPosition = refC.transform.position;
+        GameObject temp = refC.gameObject;
+        for (int i = 0; i < 10; i++)
+        {
+            temp.name = string.Concat("random_dot_", i); 
+            r = Random.Range(0, 255);
+            g = Random.Range(0, 255);
+            b = Random.Range(0, 255);
+            x = Random.Range(xMin, xMax);
+            y = Random.Range(yMin, yMax);
+            currentPosition = new Vector2(x, y);
+            (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color = new Color(r, g, b);
+            Color c = (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color;
 
-        // Choose a new goods to spawn from the array (note I specifically call it a 'prefab' to avoid confusing myself!)
-        GameObject goodsPrefab = theGoodies[randy];
-
-        // Creates the random object at the random 2D position.
-        Instantiate(goodsPrefab, trans);
-        numToSpawn--;
-
+            Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", " at x: ", x, " y: ", y, 
+                " Color: ", c, "\n"));
+            GameObject tmpObj = GameObject.Instantiate(temp, currentPosition, Quaternion.identity) as GameObject;
+            Debug.Log((tmpObj.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color);
+        }
     }
 }
