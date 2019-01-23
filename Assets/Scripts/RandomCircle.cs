@@ -5,6 +5,7 @@ using UnityEngine;
 public class RandomCircle : MonoBehaviour
 {
     public GameObject refC;
+    private SpriteRenderer spriteRend;
     public int numToSpawn;
 
     // the range of X
@@ -25,8 +26,11 @@ public class RandomCircle : MonoBehaviour
         int r, g, b;
         float x, y;
         Vector2 currentPosition = refC.transform.position;
-        GameObject temp = refC.gameObject;
-        for (int i = 0; i < 10; i++)
+        GameObject temp = Instantiate(refC);
+        spriteRend = Instantiate((SpriteRenderer) refC.GetComponent(typeof(SpriteRenderer)));
+
+
+        /*for (int i = 0; i < 10; i++)
         {
             temp.name = string.Concat("random_dot_", i); 
             r = Random.Range(0, 255);
@@ -42,6 +46,6 @@ public class RandomCircle : MonoBehaviour
                 " Color: ", c, "\n"));
             GameObject tmpObj = GameObject.Instantiate(temp, currentPosition, Quaternion.identity) as GameObject;
             Debug.Log((tmpObj.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color);
-        }
+        }*/
     }
 }
