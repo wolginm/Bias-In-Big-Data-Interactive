@@ -26,9 +26,9 @@ public class RandomCircle : MonoBehaviour
         float r, g, b;
         float x, y;
 
-        r = Random.Range(0, 1);
-        g = Random.Range(0, 1);
-        b = Random.Range(0, 1);
+        r = (float)(Random.Range(0, 255));
+        g = (float)(Random.Range(0, 255));
+        b = (float)(Random.Range(0, 255));
         x = Random.Range(xMin, xMax);
         y = Random.Range(yMin, yMax);
 
@@ -37,7 +37,8 @@ public class RandomCircle : MonoBehaviour
         SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>();
         spriteRend.sprite = spt;
         gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b);
-
+        gameObj.transform.parent = circleParent.transform;
+        Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
 
 
         /*for (int i = 0; i < 10; i++)
