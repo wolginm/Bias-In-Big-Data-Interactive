@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RandomCircle : MonoBehaviour
 {
-    public GameObject refC;
-    private SpriteRenderer spriteRend;
+    public GameObject circleParent;
+    public Sprite spt;
     public int numToSpawn;
 
     // the range of X
@@ -23,11 +23,21 @@ public class RandomCircle : MonoBehaviour
 
     private void Start()
     {
-        int r, g, b;
+        float r, g, b;
         float x, y;
-        Vector2 currentPosition = refC.transform.position;
-        GameObject temp = Instantiate(refC);
-        spriteRend = Instantiate((SpriteRenderer) refC.GetComponent(typeof(SpriteRenderer)));
+
+        r = Random.Range(0, 1);
+        g = Random.Range(0, 1);
+        b = Random.Range(0, 1);
+        x = Random.Range(xMin, xMax);
+        y = Random.Range(yMin, yMax);
+
+        GameObject gameObj = new GameObject(string.Concat("random_dot_", 1.ToString()));
+        gameObj.transform.position = new Vector2(x, y);
+        SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>();
+        spriteRend.sprite = spt;
+        gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b);
+
 
 
         /*for (int i = 0; i < 10; i++)
