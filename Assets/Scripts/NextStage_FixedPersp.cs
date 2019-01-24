@@ -12,6 +12,6 @@ public class NextStage_FixedPersp : MonoBehaviour
 
     public void changemenuscene(string scenename)
     {
-        Application.LoadLevel(scenename);
+        SceneManager.LoadScene(scenename);
     }
 }
