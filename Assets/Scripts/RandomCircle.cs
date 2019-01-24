@@ -53,6 +53,7 @@ public class RandomCircle : MonoBehaviour
         }
 
         // Checks is the spot is safe
+        /*
         bool safe = false;
         Loc thisLoc = buildLoc(x, y, gameObj); // makes the location to check.
         while (!safe) //while not...
@@ -78,6 +79,7 @@ public class RandomCircle : MonoBehaviour
                 safe = true;
             }
         }
+        */
 
         Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
     }
