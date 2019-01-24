@@ -35,42 +35,62 @@ public class RandomCircle : MonoBehaviour
         x = Random.Range(xMin, xMax);
         y = Random.Range(yMin, yMax);
 
-        GameObject gameObj = new GameObject(string.Concat("random_dot_", 1.ToString()));
-        gameObj.transform.position = new Vector2(x, y);
-        SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>();
-        gameObj.AddComponent<Location>();
-        spriteRend.sprite = spt;
-        gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b);
-        gameObj.transform.parent = circleParent.transform;
+        GameObject gameObj = new GameObject(string.Concat("random_dot_", 1.ToString())); // names the new object
+        gameObj.transform.position = new Vector2(x, y); // Gives it its location
+        SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>(); // Adds the sprite renderer to the gameobject
+        gameObj.AddComponent<Location>(); // Adds the Location script to it
+        spriteRend.sprite = spt; // Sets the sprite to be the circle
+        gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b); // Sets the random color
+        gameObj.transform.parent = circleParent.transform; // makes the new object a child of the CircleParent
 
+        // This section will deal with how to make sure no dots overlap
+        GameObject[] LoCir = new GameObject[this.transform.childCount]; //Makes a Gameobject array
 
-        /*GameObject[] LoCir = new GameObject[this.transform.childCount];
+        //Fills said array of children
         for (int k = 0; k < this.transform.childCount; k ++)
         {
             LoCir[k] = this.transform.GetChild(k).gameObject;
         }
 
-
+        // Checks is the spot is safe
         bool safe = false;
-        while (!safe)
+        Loc thisLoc = buildLoc(x, y, gameObj); // makes the location to check.
+        while (!safe) //while not...
         {
-            bool collided = false;
-            foreach (GameObject other in LoCir)
+            bool collided = false; // has it collieded?
+            foreach (GameObject other in LoCir) // Runs once per child
             {
-                if (gameObj.GetComponent<Location>().collision(other.GetComponent<Location>().thisLoc))
+                if (other.GetComponent<Location>().collision(thisLoc)) // If it does collide
                 {
                     collided = true;
-                    break;
+                    break; //ends the foreach loop
                 }
             }
-            if (collided == true)
+            if (collided == true) // If we need to run through it again, i.e. if a collision was found
             {
+                //New X and Y
                 x = Random.Range(xMin, xMax);
                 y = Random.Range(yMin, yMax);
                 gameObj.transform.position = new Vector2(x, y);
             }
-        }*/
+            else
+            {
+                safe = true;
+            }
+        }
 
         Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
+    }
+
+    private Loc buildLoc(float curX, float curY, GameObject go)
+    {
+        float scaleX, scaleY, minX, minY, maxX, maxY;
+        scaleX = go.transform.localScale.x;
+        scaleY = go.transform.localScale.y;
+        minX = curX - (scaleX / 2);
+        maxX = curX + (scaleX / 2);
+        minY = curY - (scaleY / 2);
+        maxY = curY + (scaleY / 2);
+        return new Loc(minX, maxX, minY, maxY);
     }
 }
