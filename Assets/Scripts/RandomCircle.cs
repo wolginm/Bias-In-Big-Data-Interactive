@@ -29,34 +29,48 @@ public class RandomCircle : MonoBehaviour
         r = (float)(Random.Range(0, 255));
         g = (float)(Random.Range(0, 255));
         b = (float)(Random.Range(0, 255));
+        r = r / 255;
+        g = g / 255;
+        b = b / 255;
         x = Random.Range(xMin, xMax);
         y = Random.Range(yMin, yMax);
 
         GameObject gameObj = new GameObject(string.Concat("random_dot_", 1.ToString()));
         gameObj.transform.position = new Vector2(x, y);
         SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>();
+        gameObj.AddComponent<Location>();
         spriteRend.sprite = spt;
         gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b);
         gameObj.transform.parent = circleParent.transform;
-        Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
 
 
-        /*for (int i = 0; i < 10; i++)
+        GameObject[] LoCir = new GameObject[this.transform.childCount];
+        for (int k = 0; k < this.transform.childCount; k ++)
         {
-            temp.name = string.Concat("random_dot_", i); 
-            r = Random.Range(0, 255);
-            g = Random.Range(0, 255);
-            b = Random.Range(0, 255);
-            x = Random.Range(xMin, xMax);
-            y = Random.Range(yMin, yMax);
-            currentPosition = new Vector2(x, y);
-            (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color = new Color(r, g, b);
-            Color c = (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color;
+            LoCir[k] = this.transform.GetChild(k).gameObject;
+        }
 
-            Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", " at x: ", x, " y: ", y, 
-                " Color: ", c, "\n"));
-            GameObject tmpObj = GameObject.Instantiate(temp, currentPosition, Quaternion.identity) as GameObject;
-            Debug.Log((tmpObj.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color);
-        }*/
+
+        bool safe = false;
+        while (!safe)
+        {
+            bool collided = false;
+            foreach (GameObject other in LoCir)
+            {
+                if (gameObj.GetComponent<Location>().collision(other.GetComponent<Location>().thisLoc))
+                {
+                    collided = true;
+                    break;
+                }
+            }
+            if (collided == true)
+            {
+                x = Random.Range(xMin, xMax);
+                y = Random.Range(yMin, yMax);
+                gameObj.transform.position = new Vector2(x, y);
+            }
+        }
+
+        Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
     }
 }
