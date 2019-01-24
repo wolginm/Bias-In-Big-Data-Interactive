@@ -42,7 +42,7 @@ public class RandomCircle : MonoBehaviour
             SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>(); // Adds the sprite renderer to the gameobject
             gameObj.AddComponent<Location>(); // Adds the Location script to it
             spriteRend.sprite = spt; // Sets the sprite to be the circle
-            gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b); // Sets the random color
+            gameObj.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(r, 1, 1); // Sets the random color
             gameObj.transform.parent = circleParent.transform; // makes the new object a child of the CircleParent
             Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
         }
