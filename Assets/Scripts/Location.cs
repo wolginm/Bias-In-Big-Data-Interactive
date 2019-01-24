@@ -10,6 +10,11 @@ public class Location : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        buildLoc();
+    }
+
+    public void buildLoc()
+    {
         float curX, curY, scaleX, scaleY;
         curX = transform.position.x;
         curY = transform.position.y;
@@ -20,7 +25,7 @@ public class Location : MonoBehaviour
         minY = curY - (scaleY / 2);
         maxY = curY + (scaleY / 2);
         thisLoc = new Loc(minX, maxX, minY, maxY);
-        //Debug.Log(string.Concat("X, ", minX, " ", maxX));
+        Debug.Log("Loc Created");
     }
 
     public bool collision(Loc other)

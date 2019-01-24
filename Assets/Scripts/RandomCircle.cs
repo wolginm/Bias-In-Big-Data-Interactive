@@ -44,7 +44,7 @@ public class RandomCircle : MonoBehaviour
         gameObj.transform.parent = circleParent.transform;
 
 
-        GameObject[] LoCir = new GameObject[this.transform.childCount];
+        /*GameObject[] LoCir = new GameObject[this.transform.childCount];
         for (int k = 0; k < this.transform.childCount; k ++)
         {
             LoCir[k] = this.transform.GetChild(k).gameObject;
@@ -69,7 +69,7 @@ public class RandomCircle : MonoBehaviour
                 y = Random.Range(yMin, yMax);
                 gameObj.transform.position = new Vector2(x, y);
             }
-        }
+        }*/
 
         Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
     }
