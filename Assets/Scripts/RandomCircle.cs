@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RandomCircle : MonoBehaviour
 {
-    public GameObject refC;
+    public GameObject circleParent;
+    public Sprite spt;
     public int numToSpawn;
 
     // the range of X
@@ -22,26 +23,54 @@ public class RandomCircle : MonoBehaviour
 
     private void Start()
     {
-        int r, g, b;
+        float r, g, b;
         float x, y;
-        Vector2 currentPosition = refC.transform.position;
-        GameObject temp = refC.gameObject;
-        for (int i = 0; i < 10; i++)
-        {
-            temp.name = string.Concat("random_dot_", i); 
-            r = Random.Range(0, 255);
-            g = Random.Range(0, 255);
-            b = Random.Range(0, 255);
-            x = Random.Range(xMin, xMax);
-            y = Random.Range(yMin, yMax);
-            currentPosition = new Vector2(x, y);
-            (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color = new Color(r, g, b);
-            Color c = (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color;
 
-            Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", " at x: ", x, " y: ", y, 
-                " Color: ", c, "\n"));
-            GameObject tmpObj = GameObject.Instantiate(temp, currentPosition, Quaternion.identity) as GameObject;
-            Debug.Log((tmpObj.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color);
+        r = (float)(Random.Range(0, 255));
+        g = (float)(Random.Range(0, 255));
+        b = (float)(Random.Range(0, 255));
+        r = r / 255;
+        g = g / 255;
+        b = b / 255;
+        x = Random.Range(xMin, xMax);
+        y = Random.Range(yMin, yMax);
+
+        GameObject gameObj = new GameObject(string.Concat("random_dot_", 1.ToString()));
+        gameObj.transform.position = new Vector2(x, y);
+        SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>();
+        gameObj.AddComponent<Location>();
+        spriteRend.sprite = spt;
+        gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b);
+        gameObj.transform.parent = circleParent.transform;
+
+
+        /*GameObject[] LoCir = new GameObject[this.transform.childCount];
+        for (int k = 0; k < this.transform.childCount; k ++)
+        {
+            LoCir[k] = this.transform.GetChild(k).gameObject;
         }
+
+
+        bool safe = false;
+        while (!safe)
+        {
+            bool collided = false;
+            foreach (GameObject other in LoCir)
+            {
+                if (gameObj.GetComponent<Location>().collision(other.GetComponent<Location>().thisLoc))
+                {
+                    collided = true;
+                    break;
+                }
+            }
+            if (collided == true)
+            {
+                x = Random.Range(xMin, xMax);
+                y = Random.Range(yMin, yMax);
+                gameObj.transform.position = new Vector2(x, y);
+            }
+        }*/
+
+        Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
     }
 }
