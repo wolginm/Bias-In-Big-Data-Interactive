@@ -23,25 +23,29 @@ public class RandomCircle : MonoBehaviour
 
     private void Start()
     {
-        float r, g, b;
-        float x, y;
+        for (int k = 0; k < numToSpawn; k++)
+        {
+            float r, g, b;
+            float x, y;
 
-        r = (float)(Random.Range(0, 255));
-        g = (float)(Random.Range(0, 255));
-        b = (float)(Random.Range(0, 255));
-        r = r / 255;
-        g = g / 255;
-        b = b / 255;
-        x = Random.Range(xMin, xMax);
-        y = Random.Range(yMin, yMax);
+            r = (float)(Random.Range(0, 255));
+            g = (float)(Random.Range(0, 255));
+            b = (float)(Random.Range(0, 255));
+            r = r / 255;
+            g = g / 255;
+            b = b / 255;
+            x = Random.Range(xMin, xMax);
+            y = Random.Range(yMin, yMax);
 
-        GameObject gameObj = new GameObject(string.Concat("random_dot_", 1.ToString())); // names the new object
-        gameObj.transform.position = new Vector2(x, y); // Gives it its location
-        SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>(); // Adds the sprite renderer to the gameobject
-        gameObj.AddComponent<Location>(); // Adds the Location script to it
-        spriteRend.sprite = spt; // Sets the sprite to be the circle
-        gameObj.GetComponent<SpriteRenderer>().color = new Color(r, g, b); // Sets the random color
-        gameObj.transform.parent = circleParent.transform; // makes the new object a child of the CircleParent
+            GameObject gameObj = new GameObject(string.Concat("random_dot_", k.ToString())); // names the new object
+            gameObj.transform.position = new Vector2(x, y); // Gives it its location
+            SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>(); // Adds the sprite renderer to the gameobject
+            gameObj.AddComponent<Location>(); // Adds the Location script to it
+            spriteRend.sprite = spt; // Sets the sprite to be the circle
+            gameObj.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(r, 1, 1); // Sets the random color
+            gameObj.transform.parent = circleParent.transform; // makes the new object a child of the CircleParent
+            Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
+        }
 
         // This section will deal with how to make sure no dots overlap
         GameObject[] LoCir = new GameObject[this.transform.childCount]; //Makes a Gameobject array
@@ -80,8 +84,6 @@ public class RandomCircle : MonoBehaviour
             }
         }
         */
-
-        Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
     }
 
     private Loc buildLoc(float curX, float curY, GameObject go)
