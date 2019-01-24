@@ -25,7 +25,7 @@ public class Location : MonoBehaviour
         minY = curY - (scaleY / 2);
         maxY = curY + (scaleY / 2);
         thisLoc = new Loc(minX, maxX, minY, maxY);
-        Debug.Log("Loc Created");
+        Debug.Log(string.Concat("Loc Created: ", this.gameObject.name));
     }
 
     public bool collision(Loc other)
