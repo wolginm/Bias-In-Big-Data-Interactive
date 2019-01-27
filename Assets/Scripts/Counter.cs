@@ -21,8 +21,11 @@ public class Counter : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Score = previousScore - 1;
-            previousScore = Score;
+            if (Score >= 1)
+            {
+                Score = previousScore - 1;
+                previousScore = Score;
+            }
             Debug.Log(Score);
             sscore.text = Score.ToString();
         }
