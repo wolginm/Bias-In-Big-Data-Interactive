@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RandomCircle : MonoBehaviour
 {
-    public GameObject refC;
+    public GameObject circleParent;
+    public Sprite spt;
     public int numToSpawn;
 
     // the range of X
@@ -22,26 +23,78 @@ public class RandomCircle : MonoBehaviour
 
     private void Start()
     {
-        int r, g, b;
-        float x, y;
-        Vector2 currentPosition = refC.transform.position;
-        GameObject temp = refC.gameObject;
-        for (int i = 0; i < 10; i++)
+        for (int k = 0; k < numToSpawn; k++)
         {
-            temp.name = string.Concat("random_dot_", i); 
-            r = Random.Range(0, 255);
-            g = Random.Range(0, 255);
-            b = Random.Range(0, 255);
+            float r, g, b;
+            float x, y;
+
+            r = (float)(Random.Range(0, 255));
+            g = (float)(Random.Range(0, 255));
+            b = (float)(Random.Range(0, 255));
+            r = r / 255;
+            g = g / 255;
+            b = b / 255;
             x = Random.Range(xMin, xMax);
             y = Random.Range(yMin, yMax);
-            currentPosition = new Vector2(x, y);
-            (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color = new Color(r, g, b);
-            Color c = (temp.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color;
 
-            Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", " at x: ", x, " y: ", y, 
-                " Color: ", c, "\n"));
-            GameObject tmpObj = GameObject.Instantiate(temp, currentPosition, Quaternion.identity) as GameObject;
-            Debug.Log((tmpObj.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color);
+            GameObject gameObj = new GameObject(string.Concat("random_dot_", k.ToString())); // names the new object
+            gameObj.transform.position = new Vector2(x, y); // Gives it its location
+            SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>(); // Adds the sprite renderer to the gameobject
+            gameObj.AddComponent<Location>(); // Adds the Location script to it
+            spriteRend.sprite = spt; // Sets the sprite to be the circle
+            gameObj.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(r, 1, 1); // Sets the random color
+            gameObj.transform.parent = circleParent.transform; // makes the new object a child of the CircleParent
+            Debug.Log(string.Concat("Red: ", r, ", Green: ", g, "Blue: ", b, " at x: ", x, " y: ", y, "\n"));
         }
+
+        // This section will deal with how to make sure no dots overlap
+        GameObject[] LoCir = new GameObject[this.transform.childCount]; //Makes a Gameobject array
+
+        //Fills said array of children
+        for (int k = 0; k < this.transform.childCount; k ++)
+        {
+            LoCir[k] = this.transform.GetChild(k).gameObject;
+        }
+
+        // Checks is the spot is safe
+        /*
+        bool safe = false;
+        Loc thisLoc = buildLoc(x, y, gameObj); // makes the location to check.
+        while (!safe) //while not...
+        {
+            bool collided = false; // has it collieded?
+            foreach (GameObject other in LoCir) // Runs once per child
+            {
+                if (other.GetComponent<Location>().collision(thisLoc)) // If it does collide
+                {
+                    collided = true;
+                    break; //ends the foreach loop
+                }
+            }
+            if (collided == true) // If we need to run through it again, i.e. if a collision was found
+            {
+                //New X and Y
+                x = Random.Range(xMin, xMax);
+                y = Random.Range(yMin, yMax);
+                gameObj.transform.position = new Vector2(x, y);
+            }
+            else
+            {
+                safe = true;
+            }
+        }
+        */
+    }
+
+    private Loc buildLoc(float curX, float curY, GameObject go)
+    {
+        float scaleX, scaleY, minX, minY, maxX, maxY;
+        scaleX = go.transform.localScale.x;
+        scaleY = go.transform.localScale.y;
+        minX = curX - (scaleX / 2);
+        maxX = curX + (scaleX / 2);
+        minY = curY - (scaleY / 2);
+        maxY = curY + (scaleY / 2);
+        return new Loc(minX, maxX, minY, maxY);
     }
 }

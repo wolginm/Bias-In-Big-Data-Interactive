@@ -7,6 +7,6 @@ public class EndGame_Slider : MonoBehaviour
 {
     public void gotoendscene(string scenename)
     {
-        Application.LoadLevel(scenename);
+        SceneManager.LoadScene(scenename);
     }
 }
