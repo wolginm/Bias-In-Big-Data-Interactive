@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Location : MonoBehaviour
 {
-    private float minX, maxX, minY, maxY;
+    public float minX, maxX, minY, maxY;
     public Loc thisLoc;
 
     // Start is called before the first frame update
@@ -25,7 +25,8 @@ public class Location : MonoBehaviour
         minY = curY - (scaleY / 2);
         maxY = curY + (scaleY / 2);
         thisLoc = new Loc(minX, maxX, minY, maxY);
-        Debug.Log(string.Concat("Loc Created: ", this.gameObject.name));
+        Debug.Log(string.Concat(transform.localPosition.x, " ", transform.localPosition.y));
+        //Debug.Log(string.Concat("Loc Created: ", this.gameObject.name));
     }
 
     public bool collision(Loc other)
@@ -52,4 +53,12 @@ public class Loc
         }
         else return false;
     }
+
+    public bool click(float x, float y)
+    {
+        if ((minX <= x && maxX >= x) && (minY <= y && maxY >= y)) return true;
+        else return false;
+    }
+
+    public string ToString => string.Concat("minX:", minX, " maxX: ", maxX, " minY: ", minY, " maxY: ", maxY);
 }
