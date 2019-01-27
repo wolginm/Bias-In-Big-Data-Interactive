@@ -340,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 895456827}
   button: {fileID: 546696165}
+  instructions: {fileID: 967740283}
 --- !u!1001 &602695934
 PrefabInstance:
   m_ObjectHideFlags: 0
