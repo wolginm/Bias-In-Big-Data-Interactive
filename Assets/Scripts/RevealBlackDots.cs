@@ -26,10 +26,10 @@ public class RevealBlackDots : MonoBehaviour
         if (!alreadyClicked)
         {
             // Change camera background color to white
-            cam.backgroundColor = Color.white;
+            cam.backgroundColor = Color.gray;
 
             // Change instructions to explanations about data bias
-            instructions.color = Color.gray;
+            instructions.color = Color.black;
             instructions.text = "You seem to have missed some dots! Forced perspective " +
                 "like this can be used in data representation and cause bias in the " +
                 "overall results.";
