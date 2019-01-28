@@ -58,7 +58,7 @@ public class RandomCircleClick : MonoBehaviour
                     Debug.Log(new Loc(Input.mousePosition.x, Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.y).ToString);
                     sr = go.GetComponent<SpriteRenderer>();
                     Debug.Log(Input.mousePosition);
-                    sr.color = Color.HSVToRGB(0, 1, 1);
+                    sr.color = Color.HSVToRGB(0, 0, 100);
                     if (go.GetComponent<VariousVar>().clicked == false)
                     {
                         counter++;
