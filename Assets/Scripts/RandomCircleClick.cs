@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomCircleClick : MonoBehaviour
 {
     private SpriteRenderer sr;
-    private GameObject[] LoC;
+    public GameObject[] LoC;
     private Camera cam;
     // this. is the circle parent
 
@@ -41,9 +41,10 @@ public class RandomCircleClick : MonoBehaviour
             mousePos.x = Input.mousePosition.x;
             mousePos.y = cam.pixelHeight - Input.mousePosition.y;
 
-            point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y * -1, cam.nearClipPlane));
+            point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, (-1 * (mousePos.y)), cam.nearClipPlane));
 
             Debug.Log(point.ToString("F3"));
+            Debug.Log(LoC.Length);
             foreach(GameObject go in LoC)
             {
                 Loc goLoc = go.GetComponent<Location>().thisLoc;
