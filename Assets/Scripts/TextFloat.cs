@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class TextFloat : MonoBehaviour
 {
     public Slider slider;
-    public Text text;
     public Image img;
 
     
@@ -16,7 +15,6 @@ public class TextFloat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = slider.value.ToString();
         img.color = EightBitColor((int)slider.value);
         
     }
