@@ -25,7 +25,7 @@ public class Location : MonoBehaviour
         minY = curY - (scaleY / 2);
         maxY = curY + (scaleY / 2);
         thisLoc = new Loc(minX, maxX, minY, maxY);
-        Debug.Log(string.Concat(transform.localPosition.x, " ", transform.localPosition.y));
+        //Debug.Log(string.Concat(transform.localPosition.x, " ", transform.localPosition.y));
         //Debug.Log(string.Concat("Loc Created: ", this.gameObject.name));
     }
 
@@ -42,14 +42,32 @@ public class Loc
         minX = a; minY = c; maxX = b; maxY = d;
     }
 
+    public Loc(float curX, float curY)
+    {
+        minX = curX - 2;
+        maxX = curX + 2;
+        minY = curY - 2;
+        maxY = curY + 2;
+    }
+
+    /// <summary>
+    /// If ture, a collions was found
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
     public bool collision(Loc other)
     {
-        if (((other.minX > this.minX) && (other.minX < this.maxX)) ||
-            ((other.maxX > this.minX) && (other.maxX < this.maxX)) ||
-            ((other.minY > this.minY) && (other.minY < this.maxY)) ||
-            ((other.maxY > this.minY) && (other.minY < this.maxY)))
+        if (other.minX >= this.minX && other.minX <= this.maxX)
         {
-            return true;
+            if (other.maxY >= this.minY && other.maxY <= this.maxY) return true;
+            else if (other.minY <= this.maxY && other.minY >= this.minY) return true;
+            else return false;
+        }
+        if (other.maxX >= this.minX && other.maxX <= this.maxX)
+        {
+            if (other.maxY >= this.minY && other.maxY <= this.maxY) return true;
+            else if (other.minY <= this.maxY && other.minY >= this.minY) return true;
+            else return false;
         }
         else return false;
     }
