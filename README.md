@@ -7,10 +7,10 @@ This project holds Unity development code for an educational interactive demonst
 - Unity
 
 ## Authors
-- Sofia DiGirolamo - github.com/sdigiro
-- Minji Kong - github.com/mkong001
+- Sofia DiGirolamo - https://github.com/sdigiro
+- Minji Kong - https://github.com/mkong001
 - Korey Mitchell
-- Mark Wolgin - github.com/NCC74656
+- Mark Wolgin - https://github.com/NCC74656
 
 ## License
 
