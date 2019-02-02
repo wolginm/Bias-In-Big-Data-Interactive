@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// The whole point of this class is to just hold the clicked variable
+/// </summary>
 public class VariousVar : MonoBehaviour
 {
 

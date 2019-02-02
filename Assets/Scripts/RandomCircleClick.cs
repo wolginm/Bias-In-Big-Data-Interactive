@@ -22,7 +22,9 @@ public class RandomCircleClick : MonoBehaviour
         counter = 0;
     }
 
-    // This function [INSERT WHAT FUNCTION DOES HERE].
+    /// <summary>
+    /// When a new item is added to the parent, it calls this and sets the count of children.
+    /// </summary>
     void OnTransformChildrenChanged()
     {
         int children = this.transform.childCount;
@@ -32,13 +34,14 @@ public class RandomCircleClick : MonoBehaviour
             for (int k = 0; k < children; k++)
             {
                 LoC[k] = this.transform.GetChild(k).gameObject;
-                Debug.Log(LoC[k]);
+                //Debug.Log(LoC[k]);
             }
         }
     }
 
-    // This function is update function and is called every frame.
-    // It [INSERT WHAT IT DOES HERE].
+    /// <summary>
+    /// Checks if a circle has been clicked on
+    /// </summary>
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))

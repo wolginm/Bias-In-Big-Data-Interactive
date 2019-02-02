@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RandomCircle : MonoBehaviour
 {
-    public GameObject circleParent;
-    public Sprite spt;
-    public int numToSpawn;
+    public GameObject circleParent;     //Parent of the circle
+    public Sprite spt;                  //The sprite to draw againts    
+    public int numToSpawn;              //How many to spawn
 
     // the range of X
     [Header("X Spawn Range")]
@@ -20,9 +20,11 @@ public class RandomCircle : MonoBehaviour
 
     // Update is called once per frame
 
-    // This is the start function which is called when the
-    // interactive starts. It randomly places multi-colored dots
-    // onto the starting screen.
+
+    /// <summary>
+    /// Auto places the dots, with a name, color, and location
+    /// </summary>
+
     private void Start()
     {
         for (int k = 0; k < numToSpawn; k++)
@@ -51,7 +53,7 @@ public class RandomCircle : MonoBehaviour
             Debug.Log(LoCir.Length);
 
             bool safe = false;
-            while (safe == false)
+            while (safe == false) //Checks if these conditions are good
             {
                 x = Random.Range(xMin, xMax);
                 y = Random.Range(yMin, yMax);

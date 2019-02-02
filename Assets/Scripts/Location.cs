@@ -13,7 +13,7 @@ public class Location : MonoBehaviour
         buildLoc();
     }
 
-    // This function [INSERT WHAT FUNCTION DOES HERE].
+    // This function makes a new Loc indirectly, ment to be called when an item is created.
     public void buildLoc()
     {
         float curX, curY, scaleX, scaleY;
@@ -26,31 +26,42 @@ public class Location : MonoBehaviour
         minY = curY - (scaleY / 2);
         maxY = curY + (scaleY / 2);
         thisLoc = new Loc(minX, maxX, minY, maxY);
-        //Debug.Log(string.Concat(transform.localPosition.x, " ", transform.localPosition.y));
-        //Debug.Log(string.Concat("Loc Created: ", this.gameObject.name));
     }
 
-    // This function takes [INSERT WHAT OTHER IS AND WHAT TYPE IT IS HERE]
-    // and [INSERT WHAT FUNCTION DOES HERE].
+    /// <summary>
+    /// Takes a Loc and tries to compare it if collides
+    /// </summary>
+    /// <param name="other">Location</param>
+    /// <returns>True if it is a collision, Flase otherwise</returns>
     public bool collision(Loc other)
     {
         return thisLoc.collision(other);
     }
 }
 
+/// <summary>
+/// The Loc class holds the boundry for an item
+/// </summary>
 public class Loc
 {
     public float minX, minY, maxX, maxY;
-
-    // This function takes [INSERT WHAT VARIABLES ARE AND WHAT TYPE THEY ARE
-    // HERE] and [INSERT WHAT FUNCTION DOES HERE].
+/// <summary>
+///  Makes a new loc
+/// </summary>
+/// <param name="a">minX</param>
+/// <param name="b">maxX</param>
+/// <param name="c">minY</param>
+/// <param name="d">maxY</param>
     public Loc(float a, float b, float c, float d)
     {
         minX = a; minY = c; maxX = b; maxY = d;
     }
   
-    // This function takes [INSERT WHAT VARIABLES ARE AND WHAT TYPE THEY ARE
-    // HERE] and [INSERT WHAT FUNCTION DOES HERE].
+    /// <summary>
+    /// Makes a new loc
+    /// </summary>
+    /// <param name="curX">curX</param>
+    /// <param name="curY">curY</param>
     public Loc(float curX, float curY)
     {
         minX = curX - 2;
@@ -62,8 +73,8 @@ public class Loc
     /// <summary>
     /// If ture, a collions was found
     /// </summary>
-    /// <param name="other"></param>
-    /// <returns></returns>
+    /// <param name="other">A Loc</param>
+    /// <returns>Ture if collision detected</returns>
     public bool collision(Loc other)
     {
         if (other.minX >= this.minX && other.minX <= this.maxX)
@@ -81,8 +92,12 @@ public class Loc
         else return false;
     }
 
-    // This function takes [INSERT WHAT VARIABLES ARE AND WHAT TYPE THEY ARE
-    // HERE] and [INSERT WHAT FUNCTION DOES HERE].
+    /// <summary>
+    /// Not used code...
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
     public bool click(float x, float y)
     {
         if ((minX <= x && maxX >= x) && (minY <= y && maxY >= y)) return true;
