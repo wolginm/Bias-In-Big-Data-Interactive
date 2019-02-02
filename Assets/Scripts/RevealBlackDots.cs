@@ -35,7 +35,7 @@ public class RevealBlackDots : MonoBehaviour
         if (!alreadyClicked)
         {
             // Change camera background color to white
-            cam.backgroundColor = Color.white;
+            cam.backgroundColor = Color.gray;
 
             // Change instructions to explanations about data bias
             instructions.color = Color.black;
