@@ -20,9 +20,11 @@ public class RandomCircle : MonoBehaviour
 
     // Update is called once per frame
 
+
     /// <summary>
     /// Auto places the dots, with a name, color, and location
     /// </summary>
+
     private void Start()
     {
         for (int k = 0; k < numToSpawn; k++)
@@ -38,9 +40,11 @@ public class RandomCircle : MonoBehaviour
             g = g / 255;
             b = b / 255;
 
-            GameObject gameObj = new GameObject(string.Concat("random_dot_", k.ToString())); // names the new object
+            // names the new object
+            GameObject gameObj = new GameObject(string.Concat("random_dot_", k.ToString()));
 
-            GameObject[] LoCir = new GameObject[this.transform.childCount]; //Makes a Gameobject 
+            // makes a GameObject
+            GameObject[] LoCir = new GameObject[this.transform.childCount];
             for (int j = 0; j < this.transform.childCount; j++)
             {
                 LoCir[j] = this.transform.GetChild(j).gameObject;
@@ -71,13 +75,27 @@ public class RandomCircle : MonoBehaviour
                 }
                 Debug.Log("Safe");
             }
-            gameObj.transform.position = new Vector2(x, y); // Gives it its location
-            SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>(); // Adds the sprite renderer to the gameobject
-            gameObj.AddComponent<Location>(); // Adds the Location script to it
-            gameObj.AddComponent<VariousVar>(); // Adds the VariousVar script to it
-            spriteRend.sprite = spt; // Sets the sprite to be the circle
-            gameObj.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(r, 1, 1); // Sets the random color
-            gameObj.transform.parent = circleParent.transform; // makes the new object a child of the CircleParent
+
+            // gives it its location
+            gameObj.transform.position = new Vector2(x, y);
+            
+            // adds the sprite renderer to the GameObject
+            SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>();
+            
+            // adds the location script to it
+            gameObj.AddComponent<Location>();
+
+            // adds the VariousVar script to it
+            gameObj.AddComponent<VariousVar>();
+
+            // sets the sprite to be the circle
+            spriteRend.sprite = spt;
+
+            // sets the random color
+            gameObj.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(r, 1, 1);
+
+            // makes the new object a child of the CircleParent
+            gameObj.transform.parent = circleParent.transform;
         }
     }
 }
