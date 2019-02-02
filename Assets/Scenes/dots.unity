@@ -224,6 +224,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 212421790}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &212421795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212421791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e63e5a164b2841a5d785e323032e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
 --- !u!1 &546696163
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +507,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 602695934}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &602695939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602695935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e63e5a164b2841a5d785e323032e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
 --- !u!1 &895456825
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,8 +566,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 16
+    height: 9
   near clip plane: 0
   far clip plane: 1000
   field of view: 60
@@ -610,8 +636,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235, y: 82.6}
-  m_SizeDelta: {x: 188.4, y: 165.2}
+  m_AnchoredPosition: {x: -235, y: 82.600006}
+  m_SizeDelta: {x: 188.40002, y: 165.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &967740283
 MonoBehaviour:
@@ -769,7 +795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235.00002, y: -32.90001}
+  m_AnchoredPosition: {x: -235, y: -32.90001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408986596
@@ -1161,3 +1187,16 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1892839841}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1892839846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892839842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e63e5a164b2841a5d785e323032e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
