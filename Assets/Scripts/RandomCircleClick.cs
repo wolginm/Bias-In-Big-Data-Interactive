@@ -12,6 +12,9 @@ public class RandomCircleClick : MonoBehaviour
     private int counter;
     // this. is the circle parent
 
+    // This is the start function which is called when the
+    // interactive starts. It sets the counter to zero and the camera
+    // to the main camera.
     private void Start()
     {
         Debug.Log("Hit Click Start");
@@ -19,6 +22,7 @@ public class RandomCircleClick : MonoBehaviour
         counter = 0;
     }
 
+    // This function [INSERT WHAT FUNCTION DOES HERE].
     void OnTransformChildrenChanged()
     {
         int children = this.transform.childCount;
@@ -33,6 +37,8 @@ public class RandomCircleClick : MonoBehaviour
         }
     }
 
+    // This function is update function and is called every frame.
+    // It [INSERT WHAT IT DOES HERE].
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -69,7 +75,5 @@ public class RandomCircleClick : MonoBehaviour
             }
             
         }
-            
-
     }
 }

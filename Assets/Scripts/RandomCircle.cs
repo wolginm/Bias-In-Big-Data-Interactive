@@ -20,7 +20,8 @@ public class RandomCircle : MonoBehaviour
 
     // Update is called once per frame
 
-
+    // This is the start function which is called when the
+    // interactive starts. It [INSERT WHAT IT DOES HERE].
     private void Start()
     {
         for (int k = 0; k < numToSpawn; k++)
@@ -69,7 +70,6 @@ public class RandomCircle : MonoBehaviour
                 }
                 Debug.Log("Safe");
             }
-
             gameObj.transform.position = new Vector2(x, y); // Gives it its location
             SpriteRenderer spriteRend = gameObj.AddComponent<SpriteRenderer>(); // Adds the sprite renderer to the gameobject
             gameObj.AddComponent<Location>(); // Adds the Location script to it

@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class EndGame_Slider : MonoBehaviour
 {
-    public void gotoendscene(string scenename)
+    // This function takes the scene name in the form of a
+    // string and loads the scene that matches that string.
+    public void GoToEndScene(string sceneName)
     {
-        SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene(sceneName);
     }
 }
