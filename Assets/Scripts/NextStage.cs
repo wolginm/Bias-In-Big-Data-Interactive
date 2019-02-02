@@ -10,8 +10,10 @@ public class NextStage : MonoBehaviour
     //    SceneManager.LoadScene("Slider Example", LoadSceneMode.Single);
     //}
 
-    public void changemenuscene(string scenename)
+    // This function takes the scene name in the form of a
+    // string and loads the scene that matches that string.
+    public void changeMenuScene(string sceneName)
     {
-        SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -305,9 +305,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 546696169}
-        m_MethodName: changemenuscene
-        m_Mode: 5
+      - m_Target: {fileID: 546696168}
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 895456827}
   button: {fileID: 546696165}
-  instructions: {fileID: 0}
+  instructions: {fileID: 967740283}
 --- !u!114 &546696169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,8 +610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235, y: 49.900005}
-  m_SizeDelta: {x: 188.4, y: 99.8}
+  m_AnchoredPosition: {x: -235, y: 32.674988}
+  m_SizeDelta: {x: 188.4, y: 161.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &967740283
 MonoBehaviour:
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoC: []
-  textCount: {fileID: 0}
+  textCount: {fileID: 1408986596}
 --- !u!1001 &1892839841
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -20,7 +20,8 @@ public class RandomCircle : MonoBehaviour
 
     // Update is called once per frame
 
-
+    // This is the start function which is called when the
+    // interactive starts. It [INSERT WHAT IT DOES HERE].
     private void Start()
     {
         for (int k = 0; k < numToSpawn; k++)
@@ -85,8 +86,10 @@ public class RandomCircle : MonoBehaviour
             }
         }
         */
-    }
+    } // Start
 
+    // This function takes [INSERT WHAT VARIABLES ARE AND THEIR TYPES HERE] and
+    // [INSERT WHAT THE FUNCTION DOES HERE].
     private Loc buildLoc(float curX, float curY, GameObject go)
     {
         float scaleX, scaleY, minX, minY, maxX, maxY;

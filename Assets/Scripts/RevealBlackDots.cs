@@ -11,6 +11,10 @@ public class RevealBlackDots : MonoBehaviour
     public Text instructions;
     private bool alreadyClicked;
 
+    // This is the start function which is called when the
+    // interactive starts. It sets the boolean value of
+    // alreadyClicked to false, sets cam to be the main camera
+    // and adds an on click listener for the button.
     private void Start()
     {
         alreadyClicked = false;
@@ -21,6 +25,11 @@ public class RevealBlackDots : MonoBehaviour
         instructions = GameObject.FindGameObjectWithTag("Instructions").GetComponent<Text>();
     }
 
+    // This function checks if the button has been clicked and, if not,
+    // sets the camera background color to white. It also changes the text
+    // color to black and changes the text on the screen.
+    // If the button has already been clicked, clicking it again will load
+    // the next scene.
     public void OnClick()
     {
         if (!alreadyClicked)
