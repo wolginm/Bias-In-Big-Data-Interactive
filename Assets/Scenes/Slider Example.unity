@@ -450,7 +450,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 192758897}
-        m_MethodName: gotoendscene
+        m_MethodName: GoToEndScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,12 +7,13 @@ public class Location : MonoBehaviour
     public float minX, maxX, minY, maxY;
     public Loc thisLoc;
 
-    // Start is called before the first frame update
+    // This function is called before the first frame update.
     void Start()
     {
         buildLoc();
     }
 
+    // This function [INSERT WHAT FUNCTION DOES HERE].
     public void buildLoc()
     {
         float curX, curY, scaleX, scaleY;
@@ -29,19 +30,27 @@ public class Location : MonoBehaviour
         //Debug.Log(string.Concat("Loc Created: ", this.gameObject.name));
     }
 
+    // This function takes [INSERT WHAT OTHER IS AND WHAT TYPE IT IS HERE]
+    // and [INSERT WHAT FUNCTION DOES HERE].
     public bool collision(Loc other)
     {
         return thisLoc.collision(other);
     }
 }
+
 public class Loc
 {
     public float minX, minY, maxX, maxY;
+
+    // This function takes [INSERT WHAT VARIABLES ARE AND WHAT TYPE THEY ARE
+    // HERE] and [INSERT WHAT FUNCTION DOES HERE].
     public Loc(float a, float b, float c, float d)
     {
         minX = a; minY = c; maxX = b; maxY = d;
     }
-
+  
+    // This function takes [INSERT WHAT VARIABLES ARE AND WHAT TYPE THEY ARE
+    // HERE] and [INSERT WHAT FUNCTION DOES HERE].
     public Loc(float curX, float curY)
     {
         minX = curX - 2;
@@ -72,11 +81,14 @@ public class Loc
         else return false;
     }
 
+    // This function takes [INSERT WHAT VARIABLES ARE AND WHAT TYPE THEY ARE
+    // HERE] and [INSERT WHAT FUNCTION DOES HERE].
     public bool click(float x, float y)
     {
         if ((minX <= x && maxX >= x) && (minY <= y && maxY >= y)) return true;
         else return false;
     }
 
+    // This function is our ToString function.
     public string ToString => string.Concat("minX:", minX, " maxX: ", maxX, " minY: ", minY, " maxY: ", maxY);
 }
