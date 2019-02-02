@@ -1,6 +1,6 @@
 # Educational Interactive: Bias in Big Data
 
-This project holds Unity development code for an educational interactive demonstrating bias in data selection in Big Data for the course Educational Game Development (CISC374) at the University of Delaware.
+This project holds Unity development code for an educational interactive demonstrating bias in data selection in Big Data for the course Educational Game Development (CISC374) at the University of Delaware. The objective of this interactive is to show how small changes in selection and perception can change the result of a study or competition. The user will learn how to better view data by altering their perspective.
 
 ## Built With
 
