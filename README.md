@@ -14,7 +14,6 @@ This project holds Unity development code for an educational interactive demonst
 Our potential future features are aimed to add complexity to the interactive. For example, we can an additional stage that involves zooming out of a scene to reveal hidden circles. This idea was suggested by our clients from the University of Canterbury in Christchurch, New Zealand during our beta release client meeting. The stages can be added if the average amount of time it took for the users to complete the current version of our interactive is too short. According to the beta release feedback from our clients, however, the current version was short enough to hold users’ attention and successfully address the learning outcome.
 
 ## Authors
-- (Sofia DiGirolamo) [https://github.com/sdigiro]
 - Sofia DiGirolamo - https://github.com/sdigiro
 - Minji Kong - https://github.com/mkong001
 - Korey Mitchell
