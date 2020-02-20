@@ -17,7 +17,7 @@ Our potential future features are aimed to add complexity to the interactive. Fo
 - Sofia DiGirolamo - https://github.com/sdigiro
 - Minji Kong - https://github.com/mkong001
 - Korey Mitchell - https://github.com/koreymitchell
-- Mark Wolgin - https://github.com/NCC74656
+- Mark Wolgin - https://github.com/wolginm
 
 See also the list of contributors who participated in this project. Please give credit if any code found in this project is used.
 
